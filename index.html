@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCQ Practice Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { text-align: center; }
+    select, button { padding: 10px; margin: 10px 0; }
+    .quiz-box { background: #fff; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .question { font-weight: bold; margin-bottom: 10px; }
+    .options button { display: block; margin: 5px 0; padding: 10px; width: 100%; border: none; border-radius: 5px; }
+    .correct { background-color: #c8e6c9; }
+    .wrong { background-color: #ffcdd2; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>MCQ Quiz Practice</h1>
+  <div class="quiz-box">
+    <label>Select Category:</label>
+    <select id="categorySelect"></select>
+
+    <div id="quizContainer">
+      <p class="question" id="questionText"></p>
+      <div class="options">
+        <button onclick="submitAnswer(0)">A. <span id="opt0"></span></button>
+        <button onclick="submitAnswer(1)">B. <span id="opt1"></span></button>
+      </div>
+      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Next</button>
+      <p id="scoreText"></p>
+    </div>
+  </div>
+
+  <script>
+    const mcqs = {
+      "Thermodynamics": [
+        {
+          question: "No engine can attain 100% thermal efficiency because it violates:",
+          options: ["First law of thermodynamics", "Second law of thermodynamics"],
+          answer: 1
+        },
+        {
+          question: "First law of thermodynamics deals with:",
+          options: ["Conservation of energy", "Conservation of entropy"],
+          answer: 0
+        }
+      ],
+      "Engines": [
+        {
+          question: "Suction, ignition, expansion, and exhaust strokes occur in:",
+          options: ["Diesel engine", "Petrol engine"],
+          answer: 1
+        }
+      ],
+      "Drawing": [
+        {
+          question: "Circle in isometric drawing is known as:",
+          options: ["Ellipse", "Circle"],
+          answer: 0
+        }
+      ]
+    };
+
+    let currentCategory = "Thermodynamics";
+    let currentIndex = 0;
+    let score = 0;
+    let currentQuestionSet = mcqs[currentCategory];
+
+    const categorySelect = document.getElementById("categorySelect");
+    const questionText = document.getElementById("questionText");
+    const opt0 = document.getElementById("opt0");
+    const opt1 = document.getElementById("opt1");
+    const nextBtn = document.getElementById("nextBtn");
+    const scoreText = document.getElementById("scoreText");
+
+    for (let cat in mcqs) {
+      const opt = document.createElement("option");
+      opt.value = cat;
+      opt.innerText = cat;
+      categorySelect.appendChild(opt);
+    }
+
+    categorySelect.addEventListener("change", () => {
+      currentCategory = categorySelect.value;
+      currentIndex = 0;
+      score = 0;
+      currentQuestionSet = mcqs[currentCategory];
+      showQuestion();
+    });
+
+    function showQuestion() {
+      const q = currentQuestionSet[currentIndex];
+      questionText.textContent = q.question;
+      opt0.textContent = q.options[0];
+      opt1.textContent = q.options[1];
+      nextBtn.classList.add("hidden");
+      document.querySelectorAll(".options button").forEach(b => {
+        b.classList.remove("correct", "wrong");
+        b.disabled = false;
+      });
+      scoreText.textContent = `Score: ${score}`;
+    }
+
+    function submitAnswer(i) {
+      const correct = currentQuestionSet[currentIndex].answer;
+      const buttons = document.querySelectorAll(".options button");
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === correct) btn.classList.add("correct");
+        else if (idx === i) btn.classList.add("wrong");
+      });
+      if (i === correct) score++;
+      nextBtn.classList.remove("hidden");
+    }
+
+    function nextQuestion() {
+      currentIndex++;
+      if (currentIndex < currentQuestionSet.length) showQuestion();
+      else {
+        questionText.textContent = "Quiz complete!";
+        document.querySelector(".options").innerHTML = "<strong>Your final score is: " + score + "</strong>";
+        nextBtn.classList.add("hidden");
+      }
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
