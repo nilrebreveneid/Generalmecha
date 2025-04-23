@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boilers and Steam Engineering Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 5px solid #2980b9;
+      border-radius: 5px;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+  <script>
+    function checkAnswer(correct, selected, el) {
+      el.textContent = selected === correct ? 'Correct!' : 'Wrong!';
+      el.style.color = selected === correct ? 'green' : 'red';
+    }
+  </script>
+</head>
+<body>
+  <h1>Boilers and Steam Engineering Quiz</h1>
+  <div class="quiz-container">
+
+    <div class='question'>
+      <p>1. Boiler efficiency is related to:</p>
+      <div>
+        <button onclick="checkAnswer('Boiler energy output to the boiler energy input', 'Boiler steam output to the boiler water input', document.getElementById('f1'))">Boiler steam output to the boiler water input</button>
+        <button onclick="checkAnswer('Boiler energy output to the boiler energy input', 'Boiler energy output to the boiler energy input', document.getElementById('f1'))">Boiler energy output to the boiler energy input</button>
+      </div>
+      <div class='feedback' id='f1'></div>
+    </div>
+    
+    <div class='question'>
+      <p>2. The maximum heat loss in a boiler occurs due to:</p>
+      <div>
+        <button onclick="checkAnswer('Dry flue gases', 'Moisture in fuel', document.getElementById('f2'))">Moisture in fuel</button>
+        <button onclick="checkAnswer('Dry flue gases', 'Dry flue gases', document.getElementById('f2'))">Dry flue gases</button>
+      </div>
+      <div class='feedback' id='f2'></div>
+    </div>
+    
+    <div class='question'>
+      <p>3. Water and sediment in fuel oil can be removed by:</p>
+      <div>
+        <button onclick="checkAnswer('Cooling the oil in settling tanks', 'Heating the oil in the settling tanks', document.getElementById('f3'))">Heating the oil in the settling tanks</button>
+        <button onclick="checkAnswer('Cooling the oil in settling tanks', 'Cooling the oil in settling tanks', document.getElementById('f3'))">Cooling the oil in settling tanks</button>
+      </div>
+      <div class='feedback' id='f3'></div>
+    </div>
+    
+    <div class='question'>
+      <p>4. What is the objective of providing baffles in water tubes in a boiler?</p>
+      <div>
+        <button onclick="checkAnswer('To regulate steam flow', 'To regulate water flow', document.getElementById('f4'))">To regulate water flow</button>
+        <button onclick="checkAnswer('To regulate steam flow', 'To regulate steam flow', document.getElementById('f4'))">To regulate steam flow</button>
+      </div>
+      <div class='feedback' id='f4'></div>
+    </div>
+    
+    <div class='question'>
+      <p>5. Fire tube boilers are:</p>
+      <div>
+        <button onclick="checkAnswer('Internally as well as externally fired', 'Internally fired', document.getElementById('f5'))">Internally fired</button>
+        <button onclick="checkAnswer('Internally as well as externally fired', 'Internally as well as externally fired', document.getElementById('f5'))">Internally as well as externally fired</button>
+      </div>
+      <div class='feedback' id='f5'></div>
+    </div>
+    
+    <div class='question'>
+      <p>6. The ratio of heat actually used in producing steam to the heat liberated in the furnace is known as:</p>
+      <div>
+        <button onclick="checkAnswer('Boiler efficiency', 'Capacity of power', document.getElementById('f6'))">Capacity of power</button>
+        <button onclick="checkAnswer('Boiler efficiency', 'Boiler efficiency', document.getElementById('f6'))">Boiler efficiency</button>
+      </div>
+      <div class='feedback' id='f6'></div>
+    </div>
+    
+    <div class='question'>
+      <p>7. Which of the following component is fitted on a boiler to improve its efficiency?</p>
+      <div>
+        <button onclick="checkAnswer('Economizer', 'Steam trap', document.getElementById('f7'))">Steam trap</button>
+        <button onclick="checkAnswer('Economizer', 'Economizer', document.getElementById('f7'))">Economizer</button>
+      </div>
+      <div class='feedback' id='f7'></div>
+    </div>
+    
+    <div class='question'>
+      <p>8. The flue gases temperature of a well-maintained boiler is of the order of:</p>
+      <div>
+        <button onclick="checkAnswer('200°C', '400°C', document.getElementById('f8'))">400°C</button>
+        <button onclick="checkAnswer('200°C', '200°C', document.getElementById('f8'))">200°C</button>
+      </div>
+      <div class='feedback' id='f8'></div>
+    </div>
+    
+    <div class='question'>
+      <p>9. Which type of boiler can meet rapid changes of load?</p>
+      <div>
+        <button onclick="checkAnswer('Forced circulation type', 'Horizontal fire tube type', document.getElementById('f9'))">Horizontal fire tube type</button>
+        <button onclick="checkAnswer('Forced circulation type', 'Forced circulation type', document.getElementById('f9'))">Forced circulation type</button>
+      </div>
+      <div class='feedback' id='f9'></div>
+    </div>
+    
+    <div class='question'>
+      <p>10. Fire tube boilers are those in which:</p>
+      <div>
+        <button onclick="checkAnswer('Hot gases pass through tubes and water around it', 'Water passes through tubes and hot gases surround it', document.getElementById('f10'))">Water passes through tubes and hot gases surround it</button>
+        <button onclick="checkAnswer('Hot gases pass through tubes and water around it', 'Hot gases pass through tubes and water around it', document.getElementById('f10'))">Hot gases pass through tubes and water around it</button>
+      </div>
+      <div class='feedback' id='f10'></div>
+    </div>
+    
+    <div class='question'>
+      <p>11. Which of the following is a fire tube boiler?</p>
+      <div>
+        <button onclick="checkAnswer('Locomotive boiler', 'Babcock and Wilcox boiler', document.getElementById('f11'))">Babcock and Wilcox boiler</button>
+        <button onclick="checkAnswer('Locomotive boiler', 'Locomotive boiler', document.getElementById('f11'))">Locomotive boiler</button>
+      </div>
+      <div class='feedback' id='f11'></div>
+    </div>
+    
+    <div class='question'>
+      <p>12. Which of the following is a water tube boiler?</p>
+      <div>
+        <button onclick="checkAnswer('Babcock and Wilcox boiler', 'Cochran boiler', document.getElementById('f12'))">Cochran boiler</button>
+        <button onclick="checkAnswer('Babcock and Wilcox boiler', 'Babcock and Wilcox boiler', document.getElementById('f12'))">Babcock and Wilcox boiler</button>
+      </div>
+      <div class='feedback' id='f12'></div>
+    </div>
+    
+    <div class='question'>
+      <p>13. Which of the boiler is best suitable to meet the fluctuating demand of steam?</p>
+      <div>
+        <button onclick="checkAnswer('Locomotive boiler', 'Lancashire boiler', document.getElementById('f13'))">Lancashire boiler</button>
+        <button onclick="checkAnswer('Locomotive boiler', 'Locomotive boiler', document.getElementById('f13'))">Locomotive boiler</button>
+      </div>
+      <div class='feedback' id='f13'></div>
+    </div>
+    
+    <div class='question'>
+      <p>14. The pressure of steam in the engine cylinder at the beginning of stroke is ____ the boiler pressure:</p>
+      <div>
+        <button onclick="checkAnswer('Less than', 'Equal to', document.getElementById('f14'))">Equal to</button>
+        <button onclick="checkAnswer('Less than', 'Less than', document.getElementById('f14'))">Less than</button>
+      </div>
+      <div class='feedback' id='f14'></div>
+    </div>
+    
+    <div class='question'>
+      <p>15. In economizer, feed water is heated by:</p>
+      <div>
+        <button onclick="checkAnswer('Waste flue gases', 'Steam at the turbine', document.getElementById('f15'))">Steam at the turbine</button>
+        <button onclick="checkAnswer('Waste flue gases', 'Waste flue gases', document.getElementById('f15'))">Waste flue gases</button>
+      </div>
+      <div class='feedback' id='f15'></div>
+    </div>
+    
+    <div class='question'>
+      <p>16. Cochran boiler is a:</p>
+      <div>
+        <button onclick="checkAnswer('Vertical fire tube type', 'Horizontal water tube type', document.getElementById('f16'))">Horizontal water tube type</button>
+        <button onclick="checkAnswer('Vertical fire tube type', 'Vertical fire tube type', document.getElementById('f16'))">Vertical fire tube type</button>
+      </div>
+      <div class='feedback' id='f16'></div>
+    </div>
+    
+    <div class='question'>
+      <p>17. The fittings mounted on the boiler for its proper and safe functioning is/are:</p>
+      <div>
+        <button onclick="checkAnswer('All of the above', 'Water level indicator', document.getElementById('f17'))">Water level indicator</button>
+        <button onclick="checkAnswer('All of the above', 'All of the above', document.getElementById('f17'))">All of the above</button>
+      </div>
+      <div class='feedback' id='f17'></div>
+    </div>
+    
+    <div class='question'>
+      <p>18. The biggest loss in the boiler is:</p>
+      <div>
+        <button onclick="checkAnswer('Dry in flue gases', 'Moisture in fuel', document.getElementById('f18'))">Moisture in fuel</button>
+        <button onclick="checkAnswer('Dry in flue gases', 'Dry in flue gases', document.getElementById('f18'))">Dry in flue gases</button>
+      </div>
+      <div class='feedback' id='f18'></div>
+    </div>
+    
+    <div class='question'>
+      <p>19. An economizer in a boiler:</p>
+      <div>
+        <button onclick="checkAnswer('Decreases fuel consumption', 'Increases steam pressure', document.getElementById('f19'))">Increases steam pressure</button>
+        <button onclick="checkAnswer('Decreases fuel consumption', 'Decreases fuel consumption', document.getElementById('f19'))">Decreases fuel consumption</button>
+      </div>
+      <div class='feedback' id='f19'></div>
+    </div>
+    
+    <div class='question'>
+      <p>20. Boiler HP is defined as:</p>
+      <div>
+        <button onclick="checkAnswer('Work done in evaporating 1 kg of steam per hour at 100°C into dry saturated steam', 'Steam evaporation rate per kg of fuel', document.getElementById('f20'))">Steam evaporation rate per kg of fuel</button>
+        <button onclick="checkAnswer('Work done in evaporating 1 kg of steam per hour at 100°C into dry saturated steam', 'Work done in evaporating 1 kg of steam per hour at 100°C into dry saturated steam', document.getElementById('f20'))">Work done in evaporating 1 kg of steam per hour at 100°C into dry saturated steam</button>
+      </div>
+      <div class='feedback' id='f20'></div>
+    </div>
+    
+  </div>
+</body>
+</html>
